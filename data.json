@@ -4,6 +4,555 @@
 			"name" : "Karrie G. Karahalios"
 		},
 		"comments" : [],
+		"updated_time" : "2014-09-20T03:52:10+0000",
+		"caption" : "Attachment UnavailableThis attachment may have been removed or the person who shared it may not have permission to share it with you.",
+		"likes" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "MTE0MzA2MTcwOQ==",
+					"before" : "MTE0MzA2MTcwOQ=="
+				}
+			},
+			"data" : [{
+					"id" : "1143061709",
+					"name" : "Stephany Park"
+				}
+			]
+		},
+		"created_time" : "2014-09-20T03:52:10+0000",
+		"message" : "http://datastori.es/ds40-narrative-vis-research-w-jessica-hullman/",
+		"type" : "link",
+		"id" : "540171036091887_608851392557184"
+	}, {
+		"from" : {
+			"id" : "1203724096",
+			"name" : "Anne McLaughlin"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TlRnM01EVTFPVEUyT1RVeE9qRTBNVEV4TmpBMk5UST0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TlRjek9ERTFPVEU0TWpjMU9qRTBNVEV4TlRjMk5UYz0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "100001360994412",
+						"name" : "Metin Askaroglu"
+					},
+					"comment_count" : 0,
+					"like_count" : 1,
+					"created_time" : "2014-09-19T20:14:17+0000",
+					"message" : "Yes, at least 2",
+					"id" : "608573815918275"
+				}, {
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T21:02:20+0000",
+					"message" : "Yes.  I would be grateful if you can share with me how much time you take to complete one review.",
+					"id" : "608586625916994"
+				}, {
+					"from" : {
+						"id" : "1203724096",
+						"name" : "Anne McLaughlin"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T21:04:12+0000",
+					"message" : "About 5 minutes. Enough time to skim the critique and focus on a good point and an area that can be improved.",
+					"id" : "608587055916951"
+				}
+			]
+		},
+		"updated_time" : "2014-09-19T21:04:12+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-19T20:08:56+0000",
+		"message" : "So we should be doing reviews for all assignments as a part of the participation grade, correct?",
+		"type" : "status",
+		"id" : "540171036091887_608571979251792"
+	}, {
+		"from" : {
+			"id" : "748180197",
+			"name" : "Aditi Khullar"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TlRReU1qYzVNalUwTnpZeU9qRTBNVEV4TlRFeE1UVT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TURrNE9UWTFPVFkxTnpZd09qRTBNVEV3TmpJek5qWT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-18T17:46:06+0000",
+					"message" : "Hi Aditi,  Thanks for asking.  Yes, the design project is similar to what you did for the last design.  The topic is different.  Here, you are exploring some element of a group.  Whether it is comparing different groups or a member to a group.  Be prepared to present in class.  \n\nPLEASE start these now!  It takes time to explore data  to come up with a feasible and engaging design.\n\nOnce you have presented both design projects, you will be asked to implement *one* of them.  Note, the implementations need not be complete.  but you need to show a good faith effort and show in class what you created.  Please stop by office if you want help prioritizing what to implement.",
+					"id" : "608098965965760"
+				}, {
+					"from" : {
+						"id" : "100006423908893",
+						"name" : "Eri Lu"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-18T21:05:26+0000",
+					"message" : "Nice question!  By the way, is there going to be feedback provided for the last design assignment that we could use to improve this upcoming one?",
+					"id" : "608155299293460"
+				}, {
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T01:59:01+0000",
+					"message" : "Yes, there will be feedback by this weekend.",
+					"id" : "608257325949924"
+				}, {
+					"from" : {
+						"id" : "832080106",
+						"name" : "Jarai Carter"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T17:09:32+0000",
+					"message" : "We have to explore an existing visualization correct?",
+					"id" : "608519975923659"
+				}, {
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T18:23:50+0000",
+					"message" : "Hi Jarai, I don't understand.  The assignment is to create a visualization using \"group\" social data.",
+					"id" : "608541985921458"
+				}, {
+					"from" : {
+						"id" : "832080106",
+						"name" : "Jarai Carter"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T18:25:15+0000",
+					"message" : "Oh okay, Thank you for clarifying.",
+					"id" : "608542279254762"
+				}
+			]
+		},
+		"updated_time" : "2014-09-19T18:25:15+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-18T17:37:15+0000",
+		"message" : "Just wanted to ask about the expectations from the design assignment that is due on the 25th this week. Is it similar to what we did for one to one communication in our last design assignment?",
+		"type" : "status",
+		"id" : "540171036091887_608095922632731"
+	}, {
+		"from" : {
+			"id" : "1036047896",
+			"name" : "Naren Gupta"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TkRRMk9EazFPVE13T1RZM09qRTBNVEV4TXpRek16WT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TkRRMk9EazFPVE13T1RZM09qRTBNVEV4TXpRek16WT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-19T13:45:36+0000",
+					"message" : "This is awesome!",
+					"id" : "608446895930967"
+				}
+			]
+		},
+		"updated_time" : "2014-09-19T13:45:36+0000",
+		"caption" : "",
+		"likes" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "ODU0NDQ1MjIy",
+					"before" : "NzQ4MTgwMTk3"
+				}
+			},
+			"data" : [{
+					"id" : "748180197",
+					"name" : "Aditi Khullar"
+				}, {
+					"id" : "854445222",
+					"name" : "Hidy Kong"
+				}
+			]
+		},
+		"created_time" : "2014-09-19T08:52:17+0000",
+		"message" : "I don't know why I'm posting it here, but it's just so much fun.\n\nhttps://www.youtube.com/watch?v=SB_0vRnkeOk",
+		"type" : "status",
+		"id" : "540171036091887_608370365938620"
+	}, {
+		"from" : {
+			"id" : "1143061709",
+			"name" : "Stephany Park"
+		},
+		"comments" : [],
+		"updated_time" : "2014-09-19T01:57:49+0000",
+		"caption" : "embed-ssl.ted.com",
+		"likes" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "MTIwMzcyNDA5Ng==",
+					"before" : "MTIwMzcyNDA5Ng=="
+				}
+			},
+			"data" : [{
+					"id" : "1203724096",
+					"name" : "Anne McLaughlin"
+				}
+			]
+		},
+		"created_time" : "2014-09-19T01:57:49+0000",
+		"message" : "\"Lying is an attempt to bridge that gap, to connect our wishes and our fantasies about who we wish we were, how we wish we could be, with what we're really like.\"\n\nThis is another Ted talk about lying. Pamela Meyer, a liespotting expert, shares her insights on motivation behind lying, patterns of deception, and patterns of truth. She says lying is a cooperative act and that we can exempt from collaborating in a lie.\n\nWe are not building a lie detector for this class, but I think there is still a merit in considering lying, which is a common practice in our social life, in relation to our behavior in an SNS environment.",
+		"type" : "link",
+		"id" : "540171036091887_608255525950104"
+	}, {
+		"from" : {
+			"id" : "100007283566320",
+			"name" : "Silvia Xu"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TVRBeU1UWTVNams0Tnpjek9qRTBNVEV3TmpJNE16TT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TVRBeU1UWTVNams0Tnpjek9qRTBNVEV3TmpJNE16TT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-18T17:53:53+0000",
+					"message" : "fascinating!  the top 7 hits for micro-urban on google are about UIUC. Then two other mentions.",
+					"id" : "608102169298773"
+				}
+			]
+		},
+		"updated_time" : "2014-09-18T17:53:53+0000",
+		"caption" : "micro-urban.com",
+		"likes" : [],
+		"created_time" : "2014-09-18T17:01:31+0000",
+		"message" : "The official website of micro-urban...seems to be invented by us:)\nhttp://micro-urban.com/",
+		"type" : "link",
+		"id" : "540171036091887_608084372633886"
+	}, {
+		"from" : {
+			"id" : "1036047896",
+			"name" : "Naren Gupta"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakE0TURNeU9EWXlOak01TURNM09qRTBNVEV3TlRFNE1EST0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzT0RnNE1EY3lOalV6TlRFMk9qRTBNVEV3TWpFME9ETT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "1036047896",
+						"name" : "Naren Gupta"
+					},
+					"comment_count" : 0,
+					"like_count" : 1,
+					"created_time" : "2014-09-18T06:24:43+0000",
+					"message" : "Oh. It's as close to being accurate as I would be if I said that I'm the first president of United States.",
+					"id" : "607888072653516"
+				}, {
+					"from" : {
+						"id" : "100002524376170",
+						"name" : "Darshan Valia"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-18T07:12:20+0000",
+					"message" : "Wasn't what was mentioned in class (durability is more when friend circles are different) the exact opposite of what they've shown here? Or did I hear it the other way round?",
+					"id" : "607897802652543"
+				}, {
+					"from" : {
+						"id" : "100001360994412",
+						"name" : "Metin Askaroglu"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-18T14:50:02+0000",
+					"message" : "No, you heard it right",
+					"id" : "608032862639037"
+				}
+			]
+		},
+		"updated_time" : "2014-09-18T14:50:02+0000",
+		"caption" : "Attachment UnavailableThis attachment may have been removed or the person who shared it may not have permission to share it with you.",
+		"likes" : [],
+		"created_time" : "2014-09-18T06:20:37+0000",
+		"message" : "This seems interesting.",
+		"type" : "link",
+		"id" : "540171036091887_607887429320247"
+	}, {
+		"from" : {
+			"id" : "1203724096",
+			"name" : "Anne McLaughlin"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTnpFNE5qYzJNREF6TnpnNU9qRTBNVEE1T0RRNU5EVT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTnpFNE5qYzJNREF6TnpnNU9qRTBNVEE1T0RRNU5EVT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-17T20:15:45+0000",
+					"message" : "Hi Anne, I contacted Chinmay about this.  Also feel free to contact him personally.  Waiting to hear back.",
+					"id" : "607718676003789"
+				}
+			]
+		},
+		"updated_time" : "2014-09-17T20:15:45+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-17T19:42:41+0000",
+		"message" : "I accidentally pressed submit before I could finish the last two words in a sentence... When I tried to revise it, a pop-up said that I can only submit one draft as final. Is there any way for me to replace the draft?",
+		"type" : "status",
+		"id" : "540171036091887_607708836004773"
+	}, {
+		"from" : {
+			"id" : "1036047896",
+			"name" : "Naren Gupta"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTmpBNE56YzJNREUwTnpjNU9qRTBNVEE1TmpNeU1qTT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTmpBNE56YzJNREUwTnpjNU9qRTBNVEE1TmpNeU1qTT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-17T14:13:43+0000",
+					"message" : "That is correct.  You are in the same group.",
+					"id" : "607608776014779"
+				}
+			]
+		},
+		"updated_time" : "2014-09-17T14:13:43+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-17T06:16:27+0000",
+		"message" : "I see that the group visualization presentation is due on Sep 25, but I'm not sure if there's been any formal announcement on this so far. Or maybe I missed it because I was around 10 minutes late in today's lecture. Can somebody please tell me what's the case? In former case, are we supposed to create new groups or carry on with previous groups or new groups will be announced?",
+		"type" : "status",
+		"id" : "540171036091887_607474036028253"
+	}, {
+		"from" : {
+			"id" : "646206563",
+			"name" : "Tejala Thippeswamy"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTWpNek5qUTVNemcxTmpJMU9qRTBNVEE0T0RnME5qST0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTWpNek5qUTVNemcxTmpJMU9qRTBNVEE0T0RnME5qST0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T17:27:42+0000",
+					"message" : "Thanks Tejala!",
+					"id" : "607233649385625"
+				}
+			]
+		},
+		"updated_time" : "2014-09-16T17:27:42+0000",
+		"caption" : "sociology.stanford.edu",
+		"likes" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "MTAwMDA2NDIzOTA4ODkz",
+					"before" : "MTAzNjA0Nzg5Ng=="
+				}
+			},
+			"data" : [{
+					"id" : "1036047896",
+					"name" : "Naren Gupta"
+				}, {
+					"id" : "100006423908893",
+					"name" : "Eri Lu"
+				}
+			]
+		},
+		"created_time" : "2014-09-16T17:25:07+0000",
+		"message" : "Hi guys,\n\nWe have 3 readings to do for Thursday. The link for the second one is not mentioned.\n\nHere is the link to the second paper\nhttps://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf",
+		"type" : "link",
+		"id" : "540171036091887_607233016052355"
+	}, {
+		"from" : {
+			"id" : "631056433",
+			"name" : "Shubhanshu Mishra"
+		},
+		"comments" : [],
+		"updated_time" : "2014-09-16T17:07:27+0000",
+		"caption" : "www.ted.com",
+		"likes" : [],
+		"created_time" : "2014-09-16T17:07:27+0000",
+		"message" : "A talk on some interesting social TV visualizations and quantified selfies.",
+		"type" : "link",
+		"id" : "540171036091887_607228106052846"
+	}, {
+		"from" : {
+			"id" : "629842416",
+			"name" : "Aseel Addawood"
+		},
+		"comments" : [],
+		"updated_time" : "2014-09-16T16:39:07+0000",
+		"caption" : "Attachment UnavailableThis attachment may have been removed or the person who shared it may not have permission to share it with you.",
+		"likes" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "NzI4NTI1MDIz",
+					"before" : "NzI4NTI1MDIz"
+				}
+			},
+			"data" : [{
+					"id" : "728525023",
+					"name" : "Karrie G. Karahalios"
+				}
+			]
+		},
+		"created_time" : "2014-09-16T16:39:07+0000",
+		"message" : "http://nlp.stanford.edu/software/index.shtml",
+		"type" : "link",
+		"id" : "540171036091887_607217809387209"
+	}, {
+		"from" : {
+			"id" : "1203724096",
+			"name" : "Anne McLaughlin"
+		},
+		"comments" : {
+			"paging" : {
+				"cursors" : {
+					"after" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTURVeE16UXlOek0zTVRnNU9qRTBNVEE0TkRrNE5ERT0=",
+					"before" : "WTI5dGJXVnVkRjlqZFhKemIzSTZOakEzTURRME1UQTJNRGN4TWpRMk9qRTBNVEE0TkRjMk1UWT0="
+				}
+			},
+			"data" : [{
+					"from" : {
+						"id" : "1036047896",
+						"name" : "Naren Gupta"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T06:06:56+0000",
+					"message" : "https://archive.org/details/SmallUrbanSpaces",
+					"id" : "607044106071246"
+				}, {
+					"from" : {
+						"id" : "10103876144028110",
+						"name" : "Wookyung Lee"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T06:07:13+0000",
+					"message" : "heres a youtube link https://www.youtube.com/watch?v=R6G4B9Z27yA",
+					"id" : "607044179404572"
+				}, {
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T06:27:38+0000",
+					"message" : "That was fast :)",
+					"id" : "607048316070825"
+				}, {
+					"from" : {
+						"id" : "1036047896",
+						"name" : "Naren Gupta"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T06:37:44+0000",
+					"message" : "Does that mean any bonus points? :-)",
+					"id" : "607050349403955"
+				}, {
+					"from" : {
+						"id" : "728525023",
+						"name" : "Karrie G. Karahalios"
+					},
+					"comment_count" : 0,
+					"like_count" : 0,
+					"created_time" : "2014-09-16T06:44:01+0000",
+					"message" : "It does count for class participation!",
+					"id" : "607051342737189"
+				}
+			]
+		},
+		"updated_time" : "2014-09-16T06:44:01+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-16T05:52:14+0000",
+		"message" : "Is there a link to the video we watched on public spaces? I'd like to share it with some people. Thanks!",
+		"type" : "status",
+		"id" : "540171036091887_607041889404801"
+	}, {
+		"from" : {
+			"id" : "728525023",
+			"name" : "Karrie G. Karahalios"
+		},
+		"comments" : [],
+		"updated_time" : "2014-09-15T17:33:37+0000",
+		"caption" : "",
+		"likes" : [],
+		"created_time" : "2014-09-15T17:33:37+0000",
+		"message" : "Hi All,  Typically, my office hours are Wednesday from 4-5.  Due to a doctor's appt. at that time, this week, they will be Tuesday from 4-5.  Sorry for the confusion!!!",
+		"type" : "status",
+		"id" : "540171036091887_606803812761942"
+	}, {
+		"from" : {
+			"id" : "728525023",
+			"name" : "Karrie G. Karahalios"
+		},
+		"comments" : [],
 		"updated_time" : "2014-09-15T17:15:06+0000",
 		"caption" : "Attachment UnavailableThis attachment may have been removed or the person who shared it may not have permission to share it with you.",
 		"likes" : [],
