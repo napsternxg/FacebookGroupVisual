@@ -11,8 +11,14 @@ var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 1200 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var json_data = d3.json('data.json', function(error, data){
-	if (error) return console.warn(error);
+var url = '/gh/get/response.html/napsternxg/FacebookGroupVisual/tree/master/Demo/'
+
+var json_data = d3.xhr(url)
+    .header("X-Requested-With", "XMLHttpRequest")
+    .header("Content-Type", "application/x-www-form-urlencoded")
+    .post("delay=1", function (error, request) {
+    if (error) return console.warn(error.responseText);
+    var data = request.responseText;
 	data.forEach(function(d){
 		d.poster = d['from']['name'];
 		d.comments_size = 0;
