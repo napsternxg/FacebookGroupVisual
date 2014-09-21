@@ -103,7 +103,6 @@ var json_data = d3.json('data.json', function(error, data){
 			t.target = {x: x(new Date(d.comments_arr[j]['created_time'])), y: comment_y};
 			links.push(t);
 		};
-		console.log(links)
 		return links;
 
 
