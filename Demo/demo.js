@@ -67,9 +67,10 @@ var json_data = d3.json(url)
       .call(xAxis);
 
 
-	var posts = svg.selectAll('g')
+	var posts = svg.selectAll('g.plots')
 		.data(data)
 		.enter().append('g')
+		.classed('plots', true)
 		.attr('id', function(d){ console.log(d.id); return d.id; });
 	//posts.call(tip);
 
@@ -87,7 +88,7 @@ var json_data = d3.json(url)
 
 	console.log("Posts", posts);
 
-	posts.selectAll('circle.comment') // Adds a dot per comment
+	var comments = posts.selectAll('circle.comment') // Adds a dot per comment
 		.data(function(d){return d.comments_arr;}, function(d){ return d.id;})
 		.enter()
 		.append('circle')
@@ -105,7 +106,6 @@ var json_data = d3.json(url)
 		.attr("y1", function(d) { return ; })
 		.attr("x2", function(d) { return ; })
 		.attr("y2", function(d) { return ; });
-
 
 
 });

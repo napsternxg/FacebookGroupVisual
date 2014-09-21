@@ -58,9 +58,10 @@ var json_data = d3.json('data.json', function(error, data){
       .call(xAxis);
 
 
-	var posts = svg.selectAll('g')
+	var posts = svg.selectAll('g.plots')
 		.data(data)
 		.enter().append('g')
+		.classed('plots', true)
 		.attr('id', function(d){ console.log(d.id); return d.id; });
 	//posts.call(tip);
 
