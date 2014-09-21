@@ -1,6 +1,6 @@
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 1200 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 300 - margin.top - margin.bottom;
 
 
 var temp = 0; 
@@ -56,11 +56,13 @@ var json_data = d3.json('data.json', function(error, data){
 		.data(data)
 		.enter().append('g')
 		.classed('plots', true)
-		.attr('id', function(d){ return d.id; });
+		.attr('id', function(d){ return d.id; })
+		.on('mouseover', function(d){d3.select(this).classed('high', true); })
+		.on('mouseout', function(d){d3.select(this).classed('high', false); });
 	//posts.call(tip);
 
-	var post_y = height/3;
-	var comment_y = 2*height/3;
+	var post_y = 50;
+	var comment_y = height;
 	
 	posts.append('circle') // Adds a dot per post
 		.attr('cx',function(d){ return x(d.created_at);})
@@ -75,7 +77,7 @@ var json_data = d3.json('data.json', function(error, data){
 	console.log("Posts", posts);
 
 	posts.selectAll('circle.comment') // Adds a dot per comment
-		.data(function(d){return d.comments_arr;}, function(d){ return d.id;})
+		.data(function(d){return d.comments_arr;})
 		.enter()
 		.append('circle')
 		.attr('cx', function(d){ return x(new Date(d['created_time']));})
@@ -95,22 +97,20 @@ var json_data = d3.json('data.json', function(error, data){
 			t.target = {x: x(new Date(d.comments_arr[j]['created_time'])), y: comment_y};
 			links.push(t);
 		};
+		console.log(links)
 		return links;
+
 
    	}
     posts.selectAll('line.edge')
-		.data(function(d){return genLinks(d);}, function(d){ return d.id;})
+		.data(function(d){return genLinks(d);})
 		.enter()
     	.append('line')
     	.classed('edge', true)
-    	.style("stroke", "black")
     	.attr('x1', function(d){return d.source.x;})
     	.attr('y1', function(d){return d.source.y;})
     	.attr('x2', function(d){return d.target.x;})
-    	.attr('y2', function(d){return d.target.y;})
-
-	temp = posts;
-
+    	.attr('y2', function(d){return d.target.y;});
 
 
 });
