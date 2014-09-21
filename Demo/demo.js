@@ -1,12 +1,3 @@
-var data1 = [4, 8, 15, 16, 23, 42];
-var graph = d3.select("#graphs")
-  .selectAll("div")
-    .data(data1)
-  .enter().append("div")
-    .style("width", function(d) { return d * 10 + "px"; })
-    .text(function(d) { return d; });
-
-
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 1200 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -47,9 +38,9 @@ var json_data = d3.json(url)
     .tickFormat(formatTime);
 
 
-    console.log(x.domain());
+    /*console.log(x.domain());
     console.log(x.range());
-    console.log(x.ticks());
+    console.log(x.ticks());*/
 
     /*var tip = d3.tip()
 	  .attr('class', 'd3-tip')
@@ -71,14 +62,15 @@ var json_data = d3.json(url)
 		.data(data)
 		.enter().append('g')
 		.classed('plots', true)
-		.attr('id', function(d){ console.log(d.id); return d.id; });
+		.attr('id', function(d){ return d.id; });
 	//posts.call(tip);
 
-
+	var post_y = height/3;
+	var comment_y = 2*height/3;
 	
 	posts.append('circle') // Adds a dot per post
 		.attr('cx',function(d){ return x(d.created_at);})
-		.attr('cy',height/3)
+		.attr('cy',post_y)
 		.attr('r',function(d){ return 2*d.comments_size+4;})
 		.attr('fill', function(d){if(d['type'] == 'link'){return '#22dd11'; }else if(d['type']=='status'){ return '#dd2211';}})
 		.classed('posts', true)
@@ -88,24 +80,40 @@ var json_data = d3.json(url)
 
 	console.log("Posts", posts);
 
-	var comments = posts.selectAll('circle.comment') // Adds a dot per comment
+	posts.selectAll('circle.comment') // Adds a dot per comment
 		.data(function(d){return d.comments_arr;}, function(d){ return d.id;})
 		.enter()
 		.append('circle')
 		.attr('cx', function(d){ return x(new Date(d['created_time']));})
-		.attr('cy', 2*height/3)
+		.attr('cy', comment_y)
 		.attr('r', function(d){ if('like_count' in d){return 2*d['like_count']+2;}else{return 2;}})
 		.attr('fill', '#22aaff')
 		.classed('comment', true)
 		.on('click', function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));})
 		.append("svg:title")
    		.text(function(d) { return d['from']['name']+": "+d['message']; })
-   		.append("g").attr("class", "line")
-	   	.append("line")
-		.attr("x1", function(d) { return ; })
-		.attr("y1", function(d) { return ; })
-		.attr("x2", function(d) { return ; })
-		.attr("y2", function(d) { return ; });
+   		
+   	function genLinks(d){
+   		var links = [];
+		for (var j = 0; j < d.comments_arr.length; j++){
+			var t = Object();
+			t.source = {x: x(new Date(d['created_time'])), y: post_y};
+			t.target = {x: x(new Date(d.comments_arr[j]['created_time'])), y: comment_y};
+			links.push(t);
+		};
+		return links;
+
+   	}
+    posts.selectAll('line.edge')
+		.data(function(d){return genLinks(d);}, function(d){ return d.id;})
+		.enter()
+    	.append('line')
+    	.classed('edge', true)
+    	.style("stroke", "black")
+    	.attr('x1', function(d){return d.source.x;})
+    	.attr('y1', function(d){return d.source.y;})
+    	.attr('x2', function(d){return d.target.x;})
+    	.attr('y2', function(d){return d.target.y;})
 
 
 });
