@@ -7,7 +7,6 @@ authors:
 resources:
   - /js/empty.js
   - /css/normalize.css
-  - /js/d3.js
 normalize_css: yes
 lang_css: SCSS
 ...

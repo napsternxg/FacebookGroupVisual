@@ -63,12 +63,18 @@ var json_data = d3.json('data.json', function(error, data){
 
 	var post_y = 50;
 	var comment_y = height;
-	
+	function postColor(d){
+		if(d['type'] != 'status'){
+			return '#22dd11';
+		}else if(d['type']=='status'){
+		 return '#dd2211';
+		}
+	}
 	posts.append('circle') // Adds a dot per post
 		.attr('cx',function(d){ return x(d.created_at);})
 		.attr('cy',post_y)
 		.attr('r',function(d){ return 2*d.comments_size+4;})
-		.attr('fill', function(d){if(d['type'] == 'link'){return '#22dd11'; }else if(d['type']=='status'){ return '#dd2211';}})
+		.attr('fill', postColor)
 		.classed('posts', true)
 		.on('click', function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));})
 		.append("svg:title")
