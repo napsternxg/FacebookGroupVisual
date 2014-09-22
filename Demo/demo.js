@@ -17,9 +17,13 @@ var json_data = d3.json(url)
 		d.poster = d['from']['name'];
 		d.comments_size = 0;
 		d.comments_arr = [];
+		d.like_size = 0;
 		if(('comments' in d) && ('data' in d['comments'])){
 			d.comments_arr = d['comments']['data'];
 			d.comments_size = d.comments_arr.length;
+		}
+		if(('likes' in d) && ('data' in d['likes'])){
+			d.like_size = d['likes']['data'].length;
 		}
 		d.created_at = new Date(d['created_time']);
 	});
@@ -29,6 +33,11 @@ var json_data = d3.json(url)
 	var x = d3.time.scale()
     .range([margin.left, width-margin.right])
     .domain(d3.extent(data,created_at));
+
+    var y = d3.scale.linear()
+    	.range([height-100, 50])
+    	.domain(d3.extent(data, function(d) { return d.like_size; }))
+
 
     var formatTime = d3.time.format('%d/%m');
 
@@ -70,7 +79,9 @@ var json_data = d3.json(url)
 	var post_y = 50;
 	var comment_y = height;
 	function postColor(d){
-		if(d['type'] != 'status'){
+		if(d['from']['id']== '728525023'){
+			return '#D3DB00';
+		}if(d['type'] != 'status'){
 			return '#22dd11';
 		}else if(d['type']=='status'){
 		 return '#dd2211';
@@ -78,7 +89,7 @@ var json_data = d3.json(url)
 	}
 	posts.append('circle') // Adds a dot per post
 		.attr('cx',function(d){ return x(d.created_at);})
-		.attr('cy',post_y)
+		.attr('cy',function(d){ return y(d.like_size);})
 		.attr('r',function(d){ return 2*d.comments_size+4;})
 		.attr('fill', postColor)
 		.classed('posts', true)
@@ -94,8 +105,8 @@ var json_data = d3.json(url)
 		.append('circle')
 		.attr('cx', function(d){ return x(new Date(d['created_time']));})
 		.attr('cy', comment_y)
-		.attr('r', function(d){ if('like_count' in d){return 2*d['like_count']+2;}else{return 2;}})
-		.attr('fill', '#22aaff')
+		.attr('r', function(d){ if('like_count' in d){return 2*d['like_count']+5;}else{return 5;}})
+		.attr('fill', function(d){ if(d['from']['id']== '728525023'){return '#D3DB00';}else{return '#22aaff';}})
 		.classed('comment', true)
 		.on('click', function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));})
 		.append("svg:title")
@@ -105,7 +116,7 @@ var json_data = d3.json(url)
    		var links = [];
 		for (var j = 0; j < d.comments_arr.length; j++){
 			var t = Object();
-			t.source = {x: x(new Date(d['created_time'])), y: post_y};
+			t.source = {x: x(new Date(d['created_time'])), y: y(d.like_size)};
 			t.target = {x: x(new Date(d.comments_arr[j]['created_time'])), y: comment_y};
 			links.push(t);
 		};
