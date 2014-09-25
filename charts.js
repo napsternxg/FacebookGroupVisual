@@ -3,9 +3,7 @@ var margin = {top: 40, right: 20, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 
-var temp = 0; 
-
-var json_data = d3.json('data.json', function(error, data){
+var drawViz = function(error, data){
 	if (error) return console.warn(error);
 	data.forEach(function(d){
 		d.poster = d['from']['name'];
@@ -56,7 +54,7 @@ var json_data = d3.json('data.json', function(error, data){
     var xAxis = d3.svg.axis()
     	.scale(x)
     	.orient("bottom")
-    	.ticks(d3.time.tuesdays, 1)
+    	.ticks(d3.time.tuesdays)
     	.tickFormat(formatTime)
     	.tickSize(-height)
     	.tickPadding(10)
@@ -65,7 +63,7 @@ var json_data = d3.json('data.json', function(error, data){
     var xAxis1 = d3.svg.axis()
     	.scale(x)
     	.orient("bottom")
-    	.ticks(d3.time.thursdays, 1)
+    	.ticks(d3.time.thursdays)
     	.tickFormat(formatTime)
     	.tickSize(-height)
     	.tickPadding(10)
@@ -205,7 +203,8 @@ var json_data = d3.json('data.json', function(error, data){
     .attr("transform","translate("+width+",30)")
     .style("font-size","12px")
     .call(d3.legend);
+};
 
-    temp = data;
 
-});
+
+d3.json(filename, drawViz);
