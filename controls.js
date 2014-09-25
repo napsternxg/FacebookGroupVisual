@@ -1,12 +1,16 @@
 $(document).ready(function(){
     $('#switchlines').click(function(){
+    	var opacity = 1;
     	var state = $($('.axis line')[0]).attr('class');
     	if(state !== 'down'){
     		state = 'down';
+    		opacity = 'display: none;';
     	}else{
     		state = '';
+    		opacity = '';
     	}
         $('.axis line').attr("class", state);
+        $('g.tick').attr("style",opacity);
         console.log("Switch toggled");
     });
      $('#switchhighlight').click(function(){

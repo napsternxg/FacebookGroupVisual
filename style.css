@@ -9,6 +9,10 @@ svg{
   shape-rendering: crispEdges;
 }
 
+.axis line {
+	stroke: #AEEEC8;
+}
+
 .axis line.down {
 	display: none;
 }
