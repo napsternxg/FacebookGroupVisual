@@ -23,7 +23,9 @@ svg{
 	display: none;
 }
 
-
+.debug.post p {
+word-wrap: break-word;
+}
 
 
 line.edge {

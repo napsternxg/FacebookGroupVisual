@@ -149,6 +149,28 @@ var drawViz = function(error, data){
 		}
 		 return h+'status';
 	}
+
+	function showDebug(d){
+		console.log(d);
+		var debugDiv = d3.select('#debug');
+		var likeText = '';
+		if('like_size' in d){
+			likeText = '<strong>('+d.like_size+')</strong>'
+		}else if('like_count' in d){
+			likeText = '<strong>('+d.like_count+')</strong>'
+		}
+		var commentList='';
+		if('comments' in d){
+			commentList = '<br /><ul>';
+			for (var i = 0; i < d.comments_arr.length; i++) {
+				commentList += '<li><p><strong>('+d.comments_arr[i].like_count+') '+d.comments_arr[i].from.name+': </strong>'+d.comments_arr[i].message+'</p></li>';
+			};
+			commentList+='</ul>';
+		}
+		
+		
+		debugDiv.html('<div class="debug post"><p><strong>'+likeText+d.from.name+':</strong>'+d.message+commentList+'</p></div>');
+	}
 	posts.append('circle') // Adds a dot per post
 		.attr("data-legend",function(d){return "Post "+postClass(d)})
 		.attr('cx',function(d){ return x(d.created_at);})
@@ -156,7 +178,7 @@ var drawViz = function(error, data){
 		.attr('r',function(d){ return postRadius(d.comments_size+1);})
 		.attr('class', postClass)
 		.classed('posts', true)
-		.on('click', function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));})
+		.on('click', showDebug /*function(d){ console.log(d); /*d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
 		.append("svg:title")
    		.text(function(d) { return d.poster+": "+d.message; });
 
@@ -172,7 +194,7 @@ var drawViz = function(error, data){
 		.attr('r', function(d){ return commentRadius(c_link_size(d)); })
 		.attr('class', commentClass)
 		.classed('comment', true)
-		.on('click', function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));})
+		.on('click', showDebug 	/*function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
 		.append("svg:title")
    		.text(function(d) { return d['from']['name']+": "+d['message']; })
    		
