@@ -1,3 +1,9 @@
+div#graphs {
+    background-color: #E4E4E4;
+    border: black 1px solid;
+    border-radius: 10px;
+}
+
 svg{
 	width: 100%;
 	height: 500px;
@@ -40,15 +46,15 @@ line.edge {
 	opacity: 1;
 }
 .plots > circle.posts.status {
-	fill: #E78B00;
+	fill: #004358;
 }
 
 .plots > circle.posts.others {
-	fill: #3D01D8;
+	fill: #4CC595;
 }
 
 .plots > circle.posts.highlight {
-	fill: #D3DB00;
+	fill: #d7191c;
 }
 
 .plots > circle.posts.nohighlight {
@@ -56,11 +62,11 @@ line.edge {
 }
 
 .plots > circle.comment{
-	fill: #FF2260;
+	fill: #225378;
 }
 
 .plots > circle.comment.highlight{
-	fill: #D3DB00;
+	fill: #d7191c;
 }
 
 .plots > circle.comment.nohighlight{
@@ -118,7 +124,9 @@ On of switch CSS and code taken from: http://proto.io/freebies/onoff/
 .onoffswitch-inner:before {
     content: "ON";
     padding-left: 10px;
-    background-color: #4FB560; color: #666666;
+    /*background-color: #4FB560; color: #666666;*/
+    background-color: #d7191c;
+    color: #E2E2E2;
 }
 .onoffswitch-inner:after {
     content: "OFF";
