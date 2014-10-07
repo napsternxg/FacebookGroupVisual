@@ -1,0 +1,45 @@
+<head>
+	<title>We - Facebook Group Visualization</title>
+</head>
+<style type="text/css">
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="./style.css">
+<h2>Facebook Group Visualization</h2>
+<div id="graphs">
+	
+</div>
+<div id="controls">
+	<div class="switches">
+		<span>Important Dates:</span>
+		<div class="onoffswitch">
+	    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switchlines" checked>
+	    <label class="onoffswitch-label" for="switchlines">
+	        <span class="onoffswitch-inner"></span>
+	        <span class="onoffswitch-switch"></span>
+	    </label>
+	    </div>
+	</div>
+	<div class="switches">
+		<span>Highlight Moderator:</span>
+		<div class="onoffswitch">
+	    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switchhighlight" checked>
+	    <label class="onoffswitch-label" for="switchhighlight">
+	        <span class="onoffswitch-inner"></span>
+	        <span class="onoffswitch-switch"></span>
+	    </label>
+	    </div>
+	</div>
+	<div style="clear:both"></div>
+ </div>
+<pre id="debug"></pre>
+<script src="./jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="./d3.v3.min.js" charset="utf-8"></script>
+<script src="./d3.legend.js" charset="utf-8"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script type="text/javascript">
+	var filename = "data.json";
+</script>
+<script src="./charts.js" charset="utf-8"></script>
+<script src="./controls.js" charset="utf-8"></script>

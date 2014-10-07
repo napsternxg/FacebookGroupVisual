@@ -1,5 +1,5 @@
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 1200 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 
@@ -57,8 +57,7 @@ var drawViz = function(error, data){
     	.ticks(d3.time.tuesdays)
     	.tickFormat(formatTime)
     	.tickSize(-height)
-    	.tickPadding(10)
-    	;
+    	.tickPadding(10);
 
     var xAxis1 = d3.svg.axis()
     	.scale(x)
@@ -66,8 +65,14 @@ var drawViz = function(error, data){
     	.ticks(d3.time.thursdays)
     	.tickFormat(formatTime)
     	.tickSize(-height)
-    	.tickPadding(10)
-    	;
+    	.tickPadding(10);
+
+    var tip = d3.tip()
+	  .attr('class', 'd3-tip')
+	  .offset([-10, 0])
+	  .html(function(d) {
+	    return "<div style='width:400px;'><strong style='color:red'>"+d.from.name+":</strong> <span>" + d.message + "</span>";
+	  });
 
 
     /*console.log(x.domain());
@@ -83,6 +88,8 @@ var drawViz = function(error, data){
 	console.log(data);
 	var svg = d3.select('#graphs')
 		.append('svg');
+
+	svg.call(tip);
 
 	var formatDay = d3.time.format('%a');
 	svg.append("g")
@@ -124,15 +131,15 @@ var drawViz = function(error, data){
 		.enter().append('g')
 		.classed('plots', true)
 		.attr('id', function(d){ return d.id; })
-		.on('mouseover', function(d){d3.select(this).classed('high', true); })
-		.on('mouseout', function(d){d3.select(this).classed('high', false); });
+		.on('mouseover', function(d){d3.select(this).classed('high', true); /*tip.show(d);*/})
+		.on('mouseout', function(d){d3.select(this).classed('high', false); /*tip.hide(d);*/});
 	//posts.call(tip);
 
 	var post_y = 50;
 	var comment_y = height;
 	function postClass(d){
 		var h = '';
-		if(d['from']['id']== '728525023'){
+		if(d['from']['id']== '728525023' || d['from']['id'] == "10154643193000024"){
 			h = 'highlight ';
 		}
 		if(d['type'] != 'status'){
@@ -144,7 +151,7 @@ var drawViz = function(error, data){
 
 	function commentClass(d){
 		var h = ''
-		if(d['from']['id']== '728525023'){
+		if(d['from']['id']== '728525023' || d['from']['id'] == "10154643193000024"){
 			h = 'highlight ';
 		}
 		 return h+'status';
@@ -155,9 +162,9 @@ var drawViz = function(error, data){
 		var debugDiv = d3.select('#debug');
 		var likeText = '';
 		if('like_size' in d){
-			likeText = '<strong>('+d.like_size+')</strong>'
+			likeText = '('+d.like_size+') ';
 		}else if('like_count' in d){
-			likeText = '<strong>('+d.like_count+')</strong>'
+			likeText = '('+d.like_count+') ';
 		}
 		var commentList='';
 		if('comments' in d){
@@ -178,6 +185,8 @@ var drawViz = function(error, data){
 		.attr('r',function(d){ return postRadius(d.comments_size+1);})
 		.attr('class', postClass)
 		.classed('posts', true)
+		.on('mouseover',tip.show)
+		.on('mouseout',tip.hide)
 		.on('click', showDebug /*function(d){ console.log(d); /*d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
 		.append("svg:title")
    		.text(function(d) { return d.poster+": "+d.message; });
@@ -194,6 +203,8 @@ var drawViz = function(error, data){
 		.attr('r', function(d){ return commentRadius(c_link_size(d)); })
 		.attr('class', commentClass)
 		.classed('comment', true)
+		.on('mouseover',tip.show)
+		.on('mouseout',tip.hide)
 		.on('click', showDebug 	/*function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
 		.append("svg:title")
    		.text(function(d) { return d['from']['name']+": "+d['message']; })
