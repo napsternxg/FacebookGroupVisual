@@ -1,5 +1,5 @@
 div#graphs {
-    background-color: #E4E4E4;
+    background-color: #808080;
     border: black 1px solid;
     border-radius: 10px;
 }
@@ -11,12 +11,12 @@ svg{
 .axis path,
 .axis line {
   fill: none;
-  stroke: #B6B6B6;
+  stroke: #414141;
   shape-rendering: crispEdges;
 }
 
 .axis line {
-	stroke: #AEEEC8;
+	stroke: #6D6D6D;
 }
 
 .axis line.down {
@@ -52,7 +52,7 @@ line.edge {
 }
 
 .plots > circle.posts.others {
-	fill: #4CC595;
+	fill: #B8C000;
 }
 
 .plots > circle.posts.highlight {
@@ -64,7 +64,7 @@ line.edge {
 }
 
 .plots > circle.comment{
-	fill: #225378;
+	fill: #01B1E9;
 }
 
 .plots > circle.comment.highlight{
@@ -76,9 +76,9 @@ line.edge {
 }
 
 .legend rect {
-	fill:white;
-	stroke:black;
-	opacity:0.8;
+	fill:#808080;
+/*	stroke:black;
+*/	opacity:0.8;
 }
 
 text.date_tick {

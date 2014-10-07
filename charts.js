@@ -236,6 +236,9 @@ var drawViz = function(error, data){
     .attr("transform","translate("+width+",30)")
     .style("font-size","12px")
     .call(d3.legend);
+
+    console.log("Toggling buttons");
+    $('#switchlines').trigger('click');
 };
 
 
