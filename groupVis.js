@@ -76,6 +76,9 @@ var fbViz = function(){
 		data.sort(function (x,y) {
 			return x.created_at - y.created_at;
 		});
+		$('#users')
+		    .find('option')
+		    .remove();
 		$.each($_THIS.users, function(key, value) {   
 		     $('#users')
 		         .append($("<option></option>")
