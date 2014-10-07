@@ -21,7 +21,7 @@ function statusChangeCallback(response) {
     // they are logged into this app or not.
     document.getElementById('status').innerHTML = 'Please log ' +
       'into Facebook.';
-      location.reload();
+      //location.reload();
   }
 }
 
