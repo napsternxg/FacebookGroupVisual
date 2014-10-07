@@ -19,14 +19,14 @@ var fbViz = function(){
 	  //$_THIS.focus.select(".x.axis").call($_THIS.xAxis);
 	  $_THIS.posts.filter(function(d){
 	  	//console.log(d);
-	  	console.log($_THIS.brush.extent());
-	  	console.log("X Domain", $_THIS.x.domain());
+	  	/*console.log($_THIS.brush.extent());
+	  	console.log("X Domain", $_THIS.x.domain());*/
 	  	return (d.created_at >= $_THIS.brush.extent()[0]
 	  	 && d.created_at <= $_THIS.brush.extent()[1])? true: false; 
 	  	}).classed("hideElem", false);
 	  $_THIS.posts.filter(function(d){
 	  	//console.log(d);
-	  	console.log($_THIS.brush.extent());
+	  	//console.log($_THIS.brush.extent());
 	  	return (d.created_at < $_THIS.brush.extent()[0]
 	  	 || d.created_at > $_THIS.brush.extent()[1])? true: false; 
 	  	}).classed("hideElem", true);
@@ -95,6 +95,12 @@ var fbViz = function(){
 		this.setCSSProps(cssObj);
 		this.sliderProps(sliderCSSObj);
 		this.uid = uid;
+		if(this.uid == null){
+			this.uid = $.each(data, function(key, value) {
+			    this.uid = [key.toString()];
+			    return;
+			});
+		}
 
 		this.svg = new Object();
 		this.focus = new Object();

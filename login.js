@@ -163,6 +163,7 @@ function getAllData (response) {
     console.log("Got all data. Now drawing the chart.");
     console.log($_DATA);
     d3.selectAll("#graphs > svg").remove();
+    uids = null;
     drawViz(null,$_DATA);
     return true;
   }

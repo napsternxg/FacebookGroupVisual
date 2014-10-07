@@ -9,6 +9,7 @@ var margin = {top: 10, right: 10, bottom: 100, left: 40},
     height2 = 500 - margin2.top - margin2.bottom;
 
 var fObj = null;
+var uids = ["10154643193000024","728525023"];
 var drawViz = function(error, data){
 	if (error) return console.warn(error);
 	var fbVizObj = new fbViz();
@@ -21,7 +22,7 @@ var drawViz = function(error, data){
 		{
 			margin: margin2,
 			height: height2
-		}, ["10154643193000024","728525023"]);
+		}, uids);
 	fbVizObj.drawChart();
 	fObj = fbVizObj;
 };
