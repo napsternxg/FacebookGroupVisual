@@ -1,5 +1,6 @@
 var fbViz = function(){
 	this.data = null;
+	this.users = {};
 	this.slider = new Object();
 	$_SLIDER = this.slider;
 	$_THIS = this; // Copied the object instance to variable so as to use in nested function calls. 
@@ -54,6 +55,9 @@ var fbViz = function(){
 
 	this.cleanData = function(data){
 		data.forEach(function(d){
+			if(!(d['from']['id'] in $_THIS.users)){
+				$_THIS.users[d['from']['id']] = d['from']['name'];
+			}
 		d.poster = d['from']['name'];
 		d.comments_size = 0;
 		d.comments_arr = [];
@@ -71,15 +75,22 @@ var fbViz = function(){
 		data.sort(function (x,y) {
 			return x.created_at - y.created_at;
 		});
+		$.each($_THIS.users, function(key, value) {   
+		     $('#users')
+		         .append($("<option></option>")
+		         .attr("value",key)
+		         .text(value)); 
+		});
 		this.data = data;
 
 
 	};
 
-	this.init = function(data, cssObj, sliderCSSObj){
+	this.init = function(data, cssObj, sliderCSSObj, uid){
 		this.cleanData(data);
 		this.setCSSProps(cssObj);
 		this.sliderProps(sliderCSSObj);
+		this.uid = uid;
 
 		this.svg = new Object();
 		this.focus = new Object();
@@ -266,7 +277,9 @@ var fbViz = function(){
 		
 		function postClass(d){
 			var h = '';
-			if(d['from']['id']== '728525023' || d['from']['id'] == "10154643193000024"){
+			/*console.log("UID compare",$_THIS.uid, d['from']['id'].toString(), d);
+			console.log($.inArray(d['from']['id'].toString(), $_THIS.uid));*/
+			if($.inArray(d['from']['id'].toString(), $_THIS.uid) >= 0){
 				h = 'highlight ';
 			}
 			if(d['type'] != 'status'){
@@ -278,7 +291,7 @@ var fbViz = function(){
 
 		function commentClass(d){
 			var h = ''
-			if(d['from']['id']== '728525023' || d['from']['id'] == "10154643193000024"){
+			if($.inArray(d['from']['id'].toString(), $_THIS.uid) >= 0){
 				h = 'highlight ';
 			}
 			 return h+'status';
@@ -363,6 +376,33 @@ var fbViz = function(){
 	    .attr("transform","translate("+(this.width+this.margin.right)+",30)")
 	    .style("font-size","12px")
 	    .call(d3.legend);
+
+	    this.repaintNodes = function (uids) {
+	    	// body...
+
+	    	this.uid = [uids];
+	    	console.log("Repainting nodes for user: "+this.users[this.uid[0]]);
+	    	this.posts.selectAll('circle.posts')
+	    		.classed('highlight', function (d) {
+	    			// body...
+	    			if($.inArray(d['from']['id'].toString(), $_THIS.uid) >= 0){
+						return true;
+					}
+					return false;
+
+	    		});
+	    	this.posts.selectAll('circle.comment')
+	    		.classed('highlight', function (d) {
+	    			// body...
+	    			if($.inArray(d['from']['id'].toString(), $_THIS.uid) >= 0){
+						return true;
+					}
+					return false;
+
+	    		});
+
+	    }
+
 
 
 

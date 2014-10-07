@@ -34,6 +34,7 @@ Elements of the Visualization:
 - **Legends:** The visualization has legends on the side to help in understanding the color mapping to various chart objects. 
 - **Switches:** The visualization has some switches which allow the user to switch on/off the showing of important dates and posts by important individuals (both values prespecified for CS 467 FA group). 
 - **Time Slider:** At the bottom is a line chart with the overall activity on the group. This slider has height of points proportional to the number of comments on each post. If you DRAW over this line chart you will see a small rectangle which will help you in focussing on the data in that time slice. You can stretch and pan this slider to observe different part of the dataset. 
+- **User Selector** - This allows one to choose a different user for highlighting. 
 
 Interaction
 ---------------

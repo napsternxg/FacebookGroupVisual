@@ -21,10 +21,16 @@ var drawViz = function(error, data){
 		{
 			margin: margin2,
 			height: height2
-		});
+		}, ["10154643193000024","728525023"]);
 	fbVizObj.drawChart();
 	fObj = fbVizObj;
 };
+
+function changeUser (uid) {
+	// body...
+	fObj.repaintNodes(uid);
+
+}
 
 
 
