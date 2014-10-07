@@ -54,6 +54,7 @@ var fbViz = function(){
 	};
 
 	this.cleanData = function(data){
+		this.users = {};
 		data.forEach(function(d){
 			if(!(d['from']['id'] in $_THIS.users)){
 				$_THIS.users[d['from']['id']] = d['from']['name'];
