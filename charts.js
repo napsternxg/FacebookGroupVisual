@@ -32,8 +32,9 @@ var drawViz = function(error, data){
     .range([margin.left, width-margin.right])
     .domain(d3.extent(data,created_at));
 
+    var vdiff_post_comment = 100;
     var y = d3.scale.linear()
-    	.range([height-100, 50])
+    	.range([height-vdiff_post_comment, 50])
     	.domain(d3.extent(data, function(d) { return d.like_size; }))
 
     var postRadius = d3.scale.linear()
@@ -69,9 +70,9 @@ var drawViz = function(error, data){
 
     var yAxis = d3.svg.axis()
     	.scale(y)
-    	.orient("left")
-    	.tickSize(width-margin.right-margin.left)
-    	.tickPadding(margin.left+margin.right);
+    	.orient("right")
+    	.tickSize(width-margin.right)
+    	.tickPadding(10);
 
     var tip = d3.tip()
 	  .attr('class', 'd3-tip')
@@ -133,7 +134,22 @@ var drawViz = function(error, data){
       svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-      .selectAll('text');
+      .selectAll('text')
+      .attr('class','date_tick');
+
+      svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", width-margin.right-5)
+    .attr("y", height - 10)
+    .text("Comments");
+
+    svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", width-margin.right-5)
+    .attr("y", height-vdiff_post_comment - 10)
+    .text("Posts");
 
 
 
@@ -245,7 +261,7 @@ var drawViz = function(error, data){
 
     legend = svg.append("g")
     .attr("class","legend")
-    .attr("transform","translate("+width+",30)")
+    .attr("transform","translate("+(width+margin.right)+",30)")
     .style("font-size","12px")
     .call(d3.legend);
 
