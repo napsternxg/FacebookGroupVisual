@@ -1,5 +1,8 @@
 var fbViz = function(){
 	this.data = null;
+	this.slider = new Object();
+	$_SLIDER = this.slider;
+	$_THIS = this; // Copied the object instance to variable so as to use in nested function calls. 
 
 	this.setCSSProps = function(cssObj){
 		this.margin = cssObj.margin;
@@ -7,6 +10,45 @@ var fbViz = function(){
 		this.height = cssObj.height;
 		this.comment_y = this.height;
 		this.divId = cssObj.divId;
+
+	};
+
+	function brushed() {
+	  $_THIS.x.domain($_THIS.brush.empty() ? $_SLIDER.x.domain() : $_THIS.brush.extent());
+	  //$_THIS.focus.select(".x.axis").call($_THIS.xAxis);
+	  $_THIS.posts.filter(function(d){
+	  	//console.log(d);
+	  	console.log($_THIS.brush.extent());
+	  	console.log("X Domain", $_THIS.x.domain());
+	  	return (d.created_at >= $_THIS.brush.extent()[0]
+	  	 && d.created_at <= $_THIS.brush.extent()[1])? true: false; 
+	  	}).classed("hideElem", false);
+	  $_THIS.posts.filter(function(d){
+	  	//console.log(d);
+	  	console.log($_THIS.brush.extent());
+	  	return (d.created_at < $_THIS.brush.extent()[0]
+	  	 || d.created_at > $_THIS.brush.extent()[1])? true: false; 
+	  	}).classed("hideElem", true);
+	  
+	}
+
+	this.sliderProps = function(cssObj){
+		this.slider.margin = cssObj.margin;
+		this.slider.height = cssObj.height;
+		this.slider.x = d3.time.scale().range([0, this.width]);
+		this.slider.y = d3.scale.linear().range([this.slider.height, 0]);
+		this.slider.xAxis = d3.svg.axis().scale(this.slider.x).orient("bottom");
+		
+		
+
+		this.brush = d3.svg.brush()
+			.x(this.slider.x)
+			.on("brush", brushed);
+
+		this.slider.line = d3.svg.line()
+		    .interpolate("step")
+		    .x(function(d) { return $_SLIDER.x(d.created_at); })
+		    .y(function(d) { return $_SLIDER.y(d.comments_size); });
 
 	};
 
@@ -25,14 +67,23 @@ var fbViz = function(){
 		}
 		d.created_at = new Date(d['created_time']);
 		});
+
+		data.sort(function (x,y) {
+			return x.created_at - y.created_at;
+		});
 		this.data = data;
+
+
 	};
 
-	this.init = function(data, cssObj){
+	this.init = function(data, cssObj, sliderCSSObj){
 		this.cleanData(data);
 		this.setCSSProps(cssObj);
+		this.sliderProps(sliderCSSObj);
 
 		this.svg = new Object();
+		this.focus = new Object();
+
 		this.posts = new Object();
 		this.post_y = 50;
 		this.comment_y = this.height;
@@ -54,6 +105,10 @@ var fbViz = function(){
 	    this.commentRadius = d3.scale.linear()
 	    	.range([3,10])
 	    	.domain(d3.extent(this.data, function(d){return d3.max(d.comments_arr, function(t){return c_link_size(t);})}));
+
+	    this.slider.x.domain(this.x.domain());
+	    this.slider.y.domain(this.commentRadius.domain());
+
 
 	    console.log(this.commentRadius.domain());
 	}
@@ -112,14 +167,41 @@ var fbViz = function(){
 
 	this.drawChart = function(){
 		this.setAxes();
-		$_THIS = this; // Copied the object instance to variable so as to use in nested function calls. 
 
 		this.svg = d3.select(this.divId)
 			.append('svg');
-		this.svg.call(this.tip);
+
+
+		this.focus = this.svg.append("g")
+		    .attr("class", "focus")
+		    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+		this.slider.context = this.svg.append("g")
+		    .attr("class", "context")
+		    .attr("transform", "translate(" + $_SLIDER.margin.left + "," + ($_SLIDER.margin.top+$_SLIDER.margin.bottom) + ")");
+
+		$_SLIDER.context.append("path")
+		  .datum(this.data)
+		  .attr("class", "area")
+		  .attr("d", $_SLIDER.line);
+
+		$_SLIDER.context.append("g")
+		  .attr("class", "x axis")
+		  .attr("transform", "translate(0," + ($_SLIDER.height) + ")")
+		  .call($_SLIDER.xAxis);
+
+		$_SLIDER.context.append("g")
+		  .attr("class", "x brush")
+		  .call(this.brush)
+		.selectAll("rect")
+		  .attr("y", -2*$_SLIDER.margin.bottom-$_SLIDER.height)
+		  .attr("height", 2*$_SLIDER.height + 2*$_SLIDER.margin.bottom);
+
+
+		this.focus.call(this.tip);
 
 		var formatDay = d3.time.format('%a');
-		this.svg.append("g")
+		this.focus.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + this.height + ")")
 	      .call(this.xAxis)
@@ -135,7 +217,7 @@ var fbViz = function(){
 				return "rotate(-90)" 
 	       });
 
-	      this.svg.append("g")
+	      this.focus.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + this.height + ")")
 	      .call(this.xAxis1)
@@ -151,27 +233,27 @@ var fbViz = function(){
 				return "rotate(-90)" 
 	       });
 
-	      this.svg.append("g")
+	      this.focus.append("g")
 	      .attr("class", "y axis")
 	      .call(this.yAxis)
 	      .selectAll('text')
 	      .attr('class','date_tick');
 
-	      this.svg.append("text")
+	      this.focus.append("text")
 	    .attr("class", "x label")
 	    .attr("text-anchor", "end")
 	    .attr("x", this.width-this.margin.right-5)
 	    .attr("y", this.height - 10)
 	    .text("Comments");
 
-	    this.svg.append("text")
+	    this.focus.append("text")
 	    .attr("class", "x label")
 	    .attr("text-anchor", "end")
 	    .attr("x", this.width-this.margin.right-5)
 	    .attr("y", this.height-this.vdiff_post_comment - 10)
 	    .text("Posts");
 
-	    this.posts = this.svg.selectAll('g.plots')
+	    this.posts = this.focus.selectAll('g.plots')
 		.data(this.data)
 		.enter().append('g')
 		.classed('plots', true)
@@ -276,7 +358,7 @@ var fbViz = function(){
 	    	.attr('x2', function(d){return d.target.x;})
 	    	.attr('y2', function(d){return d.target.y;});
 
-	    this.legend = this.svg.append("g")
+	    this.legend = this.focus.append("g")
 	    .attr("class","legend")
 	    .attr("transform","translate("+(this.width+this.margin.right)+",30)")
 	    .style("font-size","12px")

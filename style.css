@@ -8,6 +8,14 @@ svg{
 	width: 100%;
 	height: 500px;
 }
+
+.area {
+  /*fill: steelblue;*/
+  fill: none;
+  stroke: steelblue ;
+  clip-path: url(#clip);
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -15,9 +23,15 @@ svg{
   shape-rendering: crispEdges;
 }
 
+
 .axis line {
 	stroke: #A8A8A8;
 }
+
+.hideElem{
+  opacity: 0.2;
+}
+
 
 .axis line.down {
 	display: none;
@@ -186,4 +200,14 @@ On of switch CSS and code taken from: http://proto.io/freebies/onoff/
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+}
+
+.brush rect.extent {
+  fill: steelblue;
+  fill-opacity: .125;
+}
+
+.brush .resize path {
+  fill: #eee;
+  stroke: #666;
 }
