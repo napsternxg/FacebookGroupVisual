@@ -21,6 +21,10 @@ function statusChangeCallback(response) {
     // they are logged into this app or not.
     document.getElementById('status').innerHTML = 'Please log ' +
       'into Facebook.';
+    jQuery("#picture").attr("src","");
+    $('#glist')
+    .find('option')
+    .remove();
       //location.reload();
   }
 }
