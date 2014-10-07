@@ -67,6 +67,12 @@ var drawViz = function(error, data){
     	.tickSize(-height)
     	.tickPadding(10);
 
+    var yAxis = d3.svg.axis()
+    	.scale(y)
+    	.orient("left")
+    	.tickSize(width-margin.right-margin.left)
+    	.tickPadding(margin.left+margin.right);
+
     var tip = d3.tip()
 	  .attr('class', 'd3-tip')
 	  .offset([-10, 0])
@@ -123,6 +129,12 @@ var drawViz = function(error, data){
       .attr("transform", function(d) {
 			return "rotate(-90)" 
        });
+
+      svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .selectAll('text');
+
 
 
 
@@ -188,8 +200,8 @@ var drawViz = function(error, data){
 		.on('mouseover',tip.show)
 		.on('mouseout',tip.hide)
 		.on('click', showDebug /*function(d){ console.log(d); /*d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
-		.append("svg:title")
-   		.text(function(d) { return d.poster+": "+d.message; });
+		/*.append("svg:title")
+   		.text(function(d) { return d.poster+": "+d.message; })*/;
 
 	console.log("Posts", posts);
 
@@ -206,8 +218,8 @@ var drawViz = function(error, data){
 		.on('mouseover',tip.show)
 		.on('mouseout',tip.hide)
 		.on('click', showDebug 	/*function(d){ console.log(d); d3.select('#debug').text(JSON.stringify(d,undefined, 2));}*/)
-		.append("svg:title")
-   		.text(function(d) { return d['from']['name']+": "+d['message']; })
+		/*.append("svg:title")
+   		.text(function(d) { return d['from']['name']+": "+d['message']; })*/;
    		
    	function genLinks(d){
    		var links = [];
