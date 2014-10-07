@@ -96,8 +96,8 @@ var fbViz = function(){
 		this.sliderProps(sliderCSSObj);
 		this.uid = uid;
 		if(this.uid == null){
-			this.uid = $.each(data, function(key, value) {
-			    this.uid = [key.toString()];
+			$.each(data, function(key, value) {
+			    $_THIS.uid = [key.toString()];
 			    return;
 			});
 		}
