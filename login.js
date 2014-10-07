@@ -184,8 +184,9 @@ function getAllData (response) {
 }
 
 
-function getGroupData (gid) {
+function getGroupData (gid, g) {
   // body...
+  console.log(g);
   $_DATA = [];
   query = gid+'/feed?fields=from,message,caption,likes,comments{from,message,created_time,like_count,comment_count},created_time,id,type';
   res = {paging: {next: query}};
