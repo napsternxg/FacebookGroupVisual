@@ -106,8 +106,9 @@ text.date_tick{
 
 
 div#controls {
-width: 500px;
+width: 90%;
 margin: auto;
+padding: 10px;
 }
 
 div.switches {
@@ -211,4 +212,10 @@ On of switch CSS and code taken from: http://proto.io/freebies/onoff/
 .brush .resize path {
   fill: #eee;
   stroke: #666;
+}
+
+.explain > text {
+font-size: 10px;
+color: #000000;
+fill: #000000;
 }

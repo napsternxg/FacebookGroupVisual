@@ -1,8 +1,16 @@
 $(document).ready(function () {
-    $('#switchlines').click(function () {
+    $('#switchlines').change(function () {
         var opacity = 1;
         var state = $($('.axis line')[0]).attr('class');
-        if (state !== 'down') {
+        /*if (state !== 'down') {
+            state = 'down';
+            opacity = 'display: none;';
+        } else {
+            state = '';
+            opacity = '';
+        }*/
+        console.log(this, $(this), this.checked, $(this).checked);
+        if (!this.checked) {
             state = 'down';
             opacity = 'display: none;';
         } else {
@@ -46,6 +54,13 @@ $(function () {
         console.log(uid);
         fObj.repaintNodes(uid);
         console.dir(uid);
+    });
+    $('#reset-brush').click(function (e) {
+        // body...
+        d3.selectAll(".brush").call(fObj.brush.clear());
+        fObj.brush.on('brush')();
+        console.log(fObj.brush.empty());
+        console.log(fObj.brush.extent());
     });
 });
 

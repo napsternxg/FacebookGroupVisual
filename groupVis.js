@@ -16,19 +16,27 @@ var fbViz = function () {
 
 	function brushed() {
 		$_THIS.x.domain($_THIS.brush.empty() ? $_SLIDER.x.domain() : $_THIS.brush.extent());
+		if($_THIS.brush.empty()){
+			$("#reset-brush").prop("disabled", true);
+			console.log($_THIS.x.domain());
+		}
+		else{
+			$("#reset-brush").prop("disabled", false);
+			console.log($_THIS.x.domain());
+		}
 		//$_THIS.focus.select(".x.axis").call($_THIS.xAxis);
 		$_THIS.posts.filter(function (d) {
 			//console.log(d);
 			/*console.log($_THIS.brush.extent());
 			console.log("X Domain", $_THIS.x.domain());*/
-			return (d.created_at >= $_THIS.brush.extent()[0]
-				 && d.created_at <= $_THIS.brush.extent()[1]) ? true : false;
+			return (d.created_at >= $_THIS.x.domain()[0]
+				 && d.created_at <= $_THIS.x.domain()[1]) ? true : false;
 		}).classed("hideElem", false);
 		$_THIS.posts.filter(function (d) {
 			//console.log(d);
 			//console.log($_THIS.brush.extent());
-			return (d.created_at < $_THIS.brush.extent()[0]
-				 || d.created_at > $_THIS.brush.extent()[1]) ? true : false;
+			return (d.created_at < $_THIS.x.domain()[0]
+				 || d.created_at > $_THIS.x.domain()[1]) ? true : false;
 		}).classed("hideElem", true);
 
 	}
@@ -114,7 +122,7 @@ var fbViz = function () {
 				.text($_THIS.users[value].name +
 					" ( Total: " + $_THIS.users[value].count +
 					", Posts: " + $_THIS.users[value].posts +
-					", Comments: " + $_THIS.users[value].comments + ")"));
+					", Comments: " + $_THIS.users[value].comments + " )"));
 		});
 		this.data = data;
 
@@ -131,6 +139,7 @@ var fbViz = function () {
 		console.log(this.uid);
 		this.svg = new Object();
 		this.focus = new Object();
+		this.explain = new Object();
 
 		this.posts = new Object();
 		this.post_y = 50;
@@ -222,6 +231,11 @@ var fbViz = function () {
 			.attr("class", "focus")
 			.attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
+		this.explain = this.svg.append("g")
+			.attr("class", "explain")
+			.attr("transform", "translate(" + (this.width+this.margin.left) + "," + this.margin.top + ")")
+			.attr("fill", "#ffffff");
+
 		this.slider.context = this.svg.append("g")
 			.attr("class", "context")
 			.attr("transform", "translate(" + $_SLIDER.margin.left + "," + ($_SLIDER.margin.top + $_SLIDER.margin.bottom) + ")");
@@ -255,7 +269,7 @@ var fbViz = function () {
 		.attr("dx", "-10px")
 		.attr("dy", "0")
 		.attr("class", function (d) {
-			console.log(d);
+			//console.log(d);
 			return "date_tick " + formatDay(d);
 		})
 		.attr("transform", function (d) {
@@ -297,6 +311,35 @@ var fbViz = function () {
 		.attr("x", this.width - this.margin.right - 5)
 		.attr("y", this.height - this.vdiff_post_comment - 10)
 		.text("Posts");
+
+		this.focus.append("text")
+		.attr("class", "y label")
+		.attr("text-anchor", "end")
+		.attr("x", this.width - this.margin.right - 5)
+		.attr("y", 10)
+		.attr("transform", "rotate(-90, "+(this.width - this.margin.right - 5)+", 10)")
+		.text("# Likes");
+
+		this.explain.append("text")
+		.attr("x", 10)
+		.attr("y", this.height - this.vdiff_post_comment - 10)
+		.text("Post size = Number of comments");
+
+		this.explain.append("text")
+		.attr("x", 10)
+		.attr("y", this.height - 10)
+		.text("Comment size = Number of likes");
+
+		this.explain.append("text")
+		.attr("x", 10)
+		.attr("y", this.height + 60)
+		.text("Overall Post Activity");
+
+		this.explain.append("text")
+		.attr("x", 10)
+		.attr("y", this.height + 70)
+		.text("Drag over to highlight");
+
 
 		this.posts = this.focus.selectAll('g.plots')
 			.data(this.data)
@@ -452,7 +495,11 @@ var fbViz = function () {
 			.style("font-size", "12px")
 			.style("font-family", "sans-serif")
 			.call(d3.legend);
-	}
+
+		$("#switchlines").prop('checked',false).change(); // Don't show dates by default
+		$("#reset-brush").prop("disabled", true); // Disable brush reset button
+	};
+
 	this.repaintNodes = function (uids) {
 		// body...
 		this.uid = uids;
@@ -495,5 +542,4 @@ var fbViz = function () {
 	};
 
 	console.log("Toggling buttons");
-	$('#switchlines').trigger('click');
 };
