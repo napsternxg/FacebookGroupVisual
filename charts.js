@@ -27,12 +27,4 @@ var drawViz = function(error, data){
 	fObj = fbVizObj;
 };
 
-function changeUser (uid) {
-	// body...
-	fObj.repaintNodes(uid);
-
-}
-
-
-
 d3.json(filename, drawViz);
