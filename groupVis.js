@@ -448,8 +448,9 @@ var fbViz = function () {
 
 		this.legend = this.focus.append("g")
 			.attr("class", "legend")
-			.attr("transform", "translate(" + (this.width + this.margin.right) + ",30)")
+			.attr("transform", "translate(" + (this.width + this.margin.right+10) + ",30)")
 			.style("font-size", "12px")
+			.style("font-family", "sans-serif")
 			.call(d3.legend);
 	}
 	this.repaintNodes = function (uids) {
