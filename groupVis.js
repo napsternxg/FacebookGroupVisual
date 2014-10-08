@@ -495,6 +495,4 @@ var fbViz = function () {
 
 	console.log("Toggling buttons");
 	$('#switchlines').trigger('click');
-}
-
-}
+};
