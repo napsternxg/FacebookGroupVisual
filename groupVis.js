@@ -18,11 +18,11 @@ var fbViz = function () {
 		$_THIS.x.domain($_THIS.brush.empty() ? $_SLIDER.x.domain() : $_THIS.brush.extent());
 		if($_THIS.brush.empty()){
 			$("#reset-brush").prop("disabled", true);
-			console.log($_THIS.x.domain());
+			//console.log($_THIS.x.domain());
 		}
 		else{
 			$("#reset-brush").prop("disabled", false);
-			console.log($_THIS.x.domain());
+			//console.log($_THIS.x.domain());
 		}
 		//$_THIS.focus.select(".x.axis").call($_THIS.xAxis);
 		$_THIS.posts.filter(function (d) {
