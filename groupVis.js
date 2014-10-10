@@ -225,7 +225,8 @@ var fbViz = function () {
 		this.setAxes();
 
 		this.svg = d3.select(this.divId)
-			.append('svg');
+			.append('svg')
+			.attr("style", "background-color: #C0C0C0; border-radius: 10px;");
 
 		this.focus = this.svg.append("g")
 			.attr("class", "focus")
